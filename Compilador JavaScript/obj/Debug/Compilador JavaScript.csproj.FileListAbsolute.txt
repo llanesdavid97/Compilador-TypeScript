@@ -1,0 +1,13 @@
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe.config
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.pdb
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Form1.resources
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Properties.Resources.resources
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.GenerateResource.cache
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.exe
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.pdb
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.CopyComplete
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
