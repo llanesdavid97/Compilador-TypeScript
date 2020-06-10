@@ -11,3 +11,15 @@ C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Comp
 C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.CopyComplete
 C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Users\Acer\Desktop\Clases\Lenguajes y Automátas I\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csprojAssemblyReference.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Form1.resources
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Properties.Resources.resources
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.GenerateResource.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.CoreCompileInputs.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.exe
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.pdb
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe.config
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.pdb
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.csproj.CopyComplete
