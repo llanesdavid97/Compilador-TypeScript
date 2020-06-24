@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compilador JavaScript", "Compilador JavaScript\Compilador JavaScript.csproj", "{40DDAF36-F2ED-4A4F-9080-5F966F3DD4DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compilador TypeScript", "Compilador JavaScript\Compilador TypeScript.csproj", "{40DDAF36-F2ED-4A4F-9080-5F966F3DD4DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

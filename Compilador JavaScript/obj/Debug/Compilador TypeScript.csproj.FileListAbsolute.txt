@@ -1,0 +1,15 @@
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe.config
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.exe
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Compilador JavaScript.pdb
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador TypeScript.csprojAssemblyReference.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Form1.resources
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.frmAyuda.resources
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador_JavaScript.Properties.Resources.resources
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador TypeScript.csproj.GenerateResource.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador TypeScript.csproj.CoreCompileInputs.cache
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador TypeScript.csproj.CopyComplete
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.exe
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\obj\Debug\Compilador JavaScript.pdb
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\FastColoredTextBox.dll
+C:\Users\llane\Documents\ITH\8 Semestre\Compi\Clases\Compilador JavaScript\Compilador JavaScript\bin\Debug\FastColoredTextBox.xml
