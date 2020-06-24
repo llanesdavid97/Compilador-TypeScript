@@ -7,7 +7,9 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace Compilador_JavaScript
 {
@@ -45,7 +47,7 @@ namespace Compilador_JavaScript
     public enum TipoToken{
         Identificador,
         Entero,
-        Double,
+        Decimal,
         Cadena, 
         OpAritmeticos,
         OpAsignacion,
@@ -68,37 +70,39 @@ namespace Compilador_JavaScript
         private string codigoFuente;     // Atributo entrada lexico
         public  List<Error> listaError;  // Atributo Errores
 
-        private int linea;
+        private int lineaPublica;
 
         #region MATRIZ DE TRANSICION
         private int[,] matrizTransicion =
         { 
                       //   0    1    2    3    4    5    6    7    8    9    10   11  12   13   14   15   16    17  18    19   20   21  22   23   24   25    26   27  28   29   30   31               
                      // || L || D || . || " || ' || / || * || + || - || % || = || & ||'|'|| ! || > || < || ? || ( || ) || {	|| } || [ || ] || ; || : || , || _ ||" "||\n ||EOF||\t ||OC ||
-         /* 0  */      {   1,   2,   5,   6,   7,   8,  12,  13,  14,  15,  16,  18,  19,  20,  22,  23, -51, -62, -63, -64, -65, -66, -67, -68, -69, -70,   1,   0,   0,   0,   0, -500 },
-         /* 1  */      {   1,   1,  -1,-503,-503,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1, -501 },
-         /* 2  */      {-501,   2,   3,-503,-503,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,-501,  -2,  -2,  -2,  -2,  -2,-504,  -2,-504,  -2,  -2,  -2,  -2,-501,  -2,  -2,  -2,  -2, -501 },
-         /* 3  */      {-501,   4,-501,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501 },
-         /* 4  */      {-501,   4,-501,-503,-503,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,-501,  -3,  -3,  -3,-501,  -3,-501,  -3,-501,  -3,  -3,-501,  -3,-501,  -3,  -3,  -3,  -3, -501 },
-         /* 5  */      { -71,   4, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -501 },
-         /* 6  */      {   6,   6,   6,  -4,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,   6,-505,-506,   6,    6 },
-         /* 7  */      {   7,   7,   7,  -4,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,-505,-506,   7,    7 },
-         /* 8  */      {  -9,  -9,  -9,  -9,  -9,   9,  10,  -9,  -9,  -9, -18,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9, -501 },
-         /* 9  */      {   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   0,   9,   9,    9 },
-         /* 10 */      {  10,  10,  10,  10,  10,  10,  11,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,   1,  10,  10,  10,  10,-502,  10,   10 },
-         /* 11 */      {  10,  10,  10,  10,  10,   0,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,  10,   10 },
-         /* 12 */      {  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -17,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -501 },
-         /* 13 */      {  -6,  -6,  -6,  -6,  -6,  -6,  -6, -12,  -6,  -6, -15,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6, -501 },
-         /* 14 */      {  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7, -13,  -7, -16,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7, -501 },
-         /* 15 */      { -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -47, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -501 },
-         /* 16 */      { -14, -14, -14, -14, -14, -14, -14, -14, -14, -14,  17, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -501 },
-         /* 17 */      { -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -501 },
-         /* 18 */      { -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -30, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -501 },
-         /* 19 */      { -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -31, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36,  -3, -501 },
-         /* 20 */      { -32, -32, -32, -32, -32, -32, -32, -32, -32, -32,  21, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -501 },
-         /* 21 */      { -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -501 },
-         /* 22 */      { -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -49, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -501 },
-         /* 23 */      { -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -50, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -501 }
+         /* 0  */      {   1,   2,   7,   8,   9,  10,  14,  15,  16,  17,  18,  20,  21,  22,  24,  25, -50, -62, -63, -64, -65, -66, -67, -68, -69, -70,   1,   0,   0,   0,   0, -500 },    //  0
+         /* 1  */      {   1,   1,  -1,-503,-503,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,-504,  -1,  -1,  -1,   1,   1,  -1,  -1,  -1,  -1 ,-500 },
+         /* 2  */      {   3,   2,   4,-503,-503,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,-504,  -2,  -2,  -2,  -2,   2,  -2,  -2,  -2,  -2, -501 },    //  1
+         /* 3  */      {   3,   3,   3,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501 },    //  2
+         /* 4  */      {   6,   5,   6,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501 },    //  3
+         /* 5  */      {   6,   5,   6,-503,-503,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3, -501,},    //  4
+         /* 6  */      {   6,   6,   6,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501,},    //  5
+         /* 7  */      { -71,   5,   6, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -501 },    //  5
+         /* 8  */      {   8,   8,   8,  -4,-506,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,   8,-505,   8,   8,    8 },    //  6
+         /* 9  */      {   9,   9,   9,-506,  -4,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,-505,   9,   9,    9 },    //  7
+         /* 10 */      {  -9,  -9,  -9,  -9,  -9,  11,  12,  -9,  -9,  -9, -18,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9,  -9, -501 },    //  8
+         /* 11  */     {  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,   0,  11,  11,  11, },    //  9
+         /* 12 */      {  12,  12,  12,  12,  12,  12,  13,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12  },    // 10
+         /* 13 */      {  13,  13,  13,  13,  13,   0,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13  },    // 11
+         /* 14 */      {  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -17,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -501 },    // 12
+         /* 15 */      {  -6,  -6,  -6,  -6,  -6,  -6,  -6, -12,-508,  -6, -15,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6, -501 },    // 13
+         /* 16 */      {  -7,  -7,  -7,  -7,  -7,  -7,  -7,-509, -13,  -7, -16,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7, -501 },    // 14 
+         /* 17 */      { -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -47, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -501 },    // 15
+         /* 18 */      { -14, -14, -14, -14, -14, -14, -14, -14, -14, -14,  19, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -501 },    // 16
+         /* 19 */      { -45, -45, -45, -45, -45, -45, -45, -45, -45, -45,-501, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -501 },    // 17
+         /* 20 */      { -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -30, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -501 },    // 18
+         /* 21 */      { -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -31, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -501 },    // 19
+         /* 22 */      { -32, -32, -32, -32, -32, -32, -32, -32, -32, -32,  23, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -501 },    // 20
+         /* 23 */      { -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -501 },    // 21 
+         /* 24 */      { -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -49, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -501 },    // 22
+         /* 25 */      { -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -50, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -501 }     // 23
         };
         #endregion
 
@@ -111,7 +115,7 @@ namespace Compilador_JavaScript
         #region CONSTRUCTOR
         public Lexico(string CodigoFuenteInterface)
         {
-            codigoFuente = CodigoFuenteInterface;
+            codigoFuente = CodigoFuenteInterface + " ";
             listaTokens = new List<Token>();
             listaError = new List<Error>();
         }
@@ -159,8 +163,28 @@ namespace Compilador_JavaScript
                     return -60;
                 case "const":
                     return -61;
+                case "string":
+                    return -72;
+                case "number":
+                    return -73;
+                case "boolean":
+                    return -74;
                 case "static":
                     return -76;
+                case "public":
+                    return -77;
+                case "private":
+                    return -78;
+                case "protected":
+                    return -79;
+                case "void":
+                    return -84;
+                case "interface":
+                    return -85;
+                case "constructor":
+                    return -86;
+                case "abstract":
+                    return -87;
                 case "class":
                     return -88;
                 case "extends":
@@ -179,9 +203,7 @@ namespace Compilador_JavaScript
                     return -95;
                 case "else":
                     return -96;
-                case "else if":
-                    return -97;
-                case "switch":
+                 case "switch":
                     return -98;
                 case "case":
                     return -99;
@@ -222,8 +244,7 @@ namespace Compilador_JavaScript
                 case "null":
                     return -117;
                 case "undefined":
-                    return -118;
-                default:
+                default: 
                     return -1;
             }
         }
@@ -401,7 +422,7 @@ namespace Compilador_JavaScript
                 case -2:
                     return TipoToken.Entero;
                 case -3:
-                    return TipoToken.Double;
+                    return TipoToken.Decimal;
                 case -4:
                     return TipoToken.Cadena;
                 case -5:
@@ -490,6 +511,20 @@ namespace Compilador_JavaScript
                     return TipoToken.SimSimples;
                 case -76:
                     return TipoToken.Alcance;
+                case -77:
+                    return TipoToken.Alcance;
+                case -78:
+                    return TipoToken.Alcance;
+                case -79:
+                    return TipoToken.Alcance;
+                case -84:
+                    return TipoToken.Sentencia;
+                case -85:
+                    return TipoToken.POO;
+                case -86:
+                    return TipoToken.POO;
+                case -87:
+                    return TipoToken.POO;
                 case -88:
                     return TipoToken.POO;
                 case -89:
@@ -552,6 +587,8 @@ namespace Compilador_JavaScript
                     return TipoToken.Sentencia;
                 case -118:
                     return TipoToken.Sentencia;
+                case -119:
+                    return TipoToken.POO;
                 default:
                     return TipoToken.OC;
             }
@@ -572,28 +609,43 @@ namespace Compilador_JavaScript
             switch (estado)
             {
                 case -500:
-                    mensajeError = "500: Símbolo desconocido";
+                    mensajeError = "Símbolo desconocido";
                     break;
                 case -501:
-                    mensajeError = "501: Formato incorrecto, se esperaba digito";
+                    mensajeError = "Formato incorrecto, se esperaba digito";
                     break;
                 case -502:
-                    mensajeError = "502: EOF Inesperado";
+                    mensajeError = "EOF Inesperado";
                     break;
                 case -503:
-                    mensajeError = "503: No se esperaba cadena";
+                    mensajeError = "No se esperaba cadena";
                     break;
                 case -504:
-                    mensajeError = "504: No se esperaba '['";
+                    mensajeError = "No se esperaba '['";
                     break;
                 case -505:
-                    mensajeError = "505: No se esperaba salto de linea";
+                    mensajeError = "No se esperaba salto de linea";
+                    break;
+                case -506:
+                    mensajeError = "Formato incorrecto para cerrar cadena";
+                    break;
+                case -507:
+                    mensajeError = "Se esperaba cerrar cadena";
+                    break;
+                case -508:
+                    mensajeError = "No se esperba operador de tipo aritmético '-' ";
+                        break;
+                case -509:
+                    mensajeError = "No se esperaba operador de tipo aritmético '+'";
+                    break;
+                case -510:
+                    mensajeError = "Se esperaba operador aritmetico o digito";
                     break;
                 default:
-                    mensajeError = "506: Error inesperado";
+                    mensajeError = "Error inesperado";
                     break;
             }
-            return new Error() { codigo = estado, mensajeError = mensajeError, tipo = tipoError.Lexico, Linea = linea};
+            return new Error() { codigo = estado, mensajeError = mensajeError, tipo = tipoError.Lexico, Linea = lineaPublica};
         }
         #endregion
 
@@ -603,65 +655,77 @@ namespace Compilador_JavaScript
         /// </summary>
         /// <returns>Metodo List para ejecutar lexico</returns>
 
+
         #region LIST EJECUTAR LEXICO
         public List<Token> EjecutarLexico()
         {
-            int estado = 0;   // La fila de la matriz y el estado actual del AFD 
-            int columna = 0;  // Presenta la columna de la matriz
+            int estado = 0;    
+            int columna = 0;
 
 
             char caracterActual;
             string lexema = string.Empty; // Lambda
             int linea = 1;
-
+            
             for (int puntero = 0; puntero < codigoFuente.ToCharArray().Length; puntero++)
             {
-                caracterActual = SiguienteCaracter(puntero);
+               caracterActual = SiguienteCaracter(puntero);
+                
+               if (caracterActual.Equals('\n'))
+               {
+                    linea += 1;
+               }
 
-                if (caracterActual.Equals('\n'))
-                {
-                    linea++;
-                }
-                else
-                    lexema += caracterActual;
-
+                lexema += caracterActual;
+             
                 columna = RegresarColumna(caracterActual);
                 estado = matrizTransicion[estado, columna];
 
-                if (estado < 0 && estado > -500) // Detectar estados finales
+                 
+                if (estado < 0 && estado > -500)
                 {
-                    if (lexema.Length >= 1)
+
+                    if (estado == -1)
                     {
-                        lexema = lexema.Remove(lexema.Length - 1);
-                        puntero++;
+                        if (lexema.Length > 1)
+                        {
+                            lexema = lexema.Remove(lexema.Length - 1);
+                            puntero--;
+                        }
                     }
+
 
                     Token nuevoToken = new Token()
                     { _Token = estado, _Lexema = lexema, _linea = linea };
 
                     if (estado == -1)
                         // Valida si es identificador
+                        
                         nuevoToken._Token = esPalabraReservada(nuevoToken._Lexema);
                         nuevoToken._TipoToken = esTipo(nuevoToken._Token);
 
-                    listaTokens.Add(nuevoToken); // Agrega Token a la lista
+                        listaTokens.Add(nuevoToken);
 
-                    // Inicializando valores
-                    estado = 0;
-                    columna = 0;
-                    lexema = string.Empty;
+                        // Reseteo
+                        estado = 0;
+                        columna = 0;
+                        lexema = string.Empty;
+
 
                 }
                 else if (estado <= -500)
-                {
+                 {
                     //Manejo de errores
+                    lineaPublica = linea;
                     listaError.Add(ManejoErrores(estado));
                     estado = 0;
                     columna = 0;
                     lexema = string.Empty; // Lambda
-
-                    linea++; // It doesn't works
-                     
+                 }
+                else if(estado == 0)
+                {
+                    columna = 0;
+                    lexema = string.Empty;
                 }
    
             }
@@ -669,10 +733,6 @@ namespace Compilador_JavaScript
         }
 
         #endregion
-
-
-        
-
 
 
     }
