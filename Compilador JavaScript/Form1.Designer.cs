@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridTokens = new System.Windows.Forms.DataGridView();
-            this.Lexema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rt_Path = new System.Windows.Forms.RichTextBox();
             this.panelFoot = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lbDirectorio = new System.Windows.Forms.Label();
@@ -48,7 +45,6 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_Top = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -63,16 +59,21 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.rtConsola = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.dataGridErroresLexico = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Lexema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mensaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rt_Path = new System.Windows.Forms.RichTextBox();
-            this.rt_Path_Colored = new FastColoredTextBoxNS.FastColoredTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).BeginInit();
             this.panelFoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -86,9 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridTokens
@@ -97,7 +98,6 @@
             this.dataGridTokens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridTokens.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridTokens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridTokens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lexema,
@@ -108,42 +108,26 @@
             this.dataGridTokens.MultiSelect = false;
             this.dataGridTokens.Name = "dataGridTokens";
             this.dataGridTokens.ReadOnly = true;
-            this.dataGridTokens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTokens.Size = new System.Drawing.Size(479, 333);
+            this.dataGridTokens.Size = new System.Drawing.Size(479, 268);
             this.dataGridTokens.TabIndex = 1;
             // 
-            // Lexema
+            // rt_Path
             // 
-            this.Lexema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Lexema.HeaderText = "Lexema";
-            this.Lexema.Name = "Lexema";
-            this.Lexema.ReadOnly = true;
-            // 
-            // Token
-            // 
-            this.Token.HeaderText = "Token";
-            this.Token.Name = "Token";
-            this.Token.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Linea
-            // 
-            this.Linea.HeaderText = "Linea";
-            this.Linea.Name = "Linea";
-            this.Linea.ReadOnly = true;
+            this.rt_Path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rt_Path.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rt_Path.ForeColor = System.Drawing.Color.Ivory;
+            this.rt_Path.Location = new System.Drawing.Point(12, 130);
+            this.rt_Path.Name = "rt_Path";
+            this.rt_Path.Size = new System.Drawing.Size(536, 441);
+            this.rt_Path.TabIndex = 2;
+            this.rt_Path.Text = "";
             // 
             // panelFoot
             // 
             this.panelFoot.Controls.Add(this.pictureBox7);
             this.panelFoot.Controls.Add(this.lbDirectorio);
             this.panelFoot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFoot.Location = new System.Drawing.Point(0, 686);
+            this.panelFoot.Location = new System.Drawing.Point(0, 767);
             this.panelFoot.Name = "panelFoot";
             this.panelFoot.Size = new System.Drawing.Size(1064, 37);
             this.panelFoot.TabIndex = 7;
@@ -162,7 +146,7 @@
             // 
             this.lbDirectorio.AutoSize = true;
             this.lbDirectorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDirectorio.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbDirectorio.ForeColor = System.Drawing.Color.White;
             this.lbDirectorio.Location = new System.Drawing.Point(54, 11);
             this.lbDirectorio.Name = "lbDirectorio";
             this.lbDirectorio.Size = new System.Drawing.Size(159, 16);
@@ -187,7 +171,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.ayudaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(48, 5);
+            this.menuStrip1.Location = new System.Drawing.Point(48, 9);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(121, 24);
             this.menuStrip1.TabIndex = 0;
@@ -202,7 +186,6 @@
             this.guardarComoToolStripMenuItem});
             this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.archivoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -256,11 +239,9 @@
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
-            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // panel_Top
             // 
-            this.panel_Top.Controls.Add(this.label4);
             this.panel_Top.Controls.Add(this.pictureBox11);
             this.panel_Top.Controls.Add(this.textBox1);
             this.panel_Top.Controls.Add(this.pictureBox10);
@@ -278,17 +259,7 @@
             this.panel_Top.Name = "panel_Top";
             this.panel_Top.Size = new System.Drawing.Size(1064, 76);
             this.panel_Top.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(901, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 16);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Version 1.0.1";
+            this.panel_Top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Top_Paint);
             // 
             // pictureBox11
             // 
@@ -326,9 +297,9 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(14, 32);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(51, 32);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(971, 10);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(934, 10);
             this.bunifuSeparator1.TabIndex = 9;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -403,7 +374,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(15, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 9);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -419,7 +390,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -443,10 +413,42 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // rtConsola
+            // 
+            this.rtConsola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rtConsola.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtConsola.ForeColor = System.Drawing.Color.Silver;
+            this.rtConsola.Location = new System.Drawing.Point(573, 460);
+            this.rtConsola.Name = "rtConsola";
+            this.rtConsola.Size = new System.Drawing.Size(478, 111);
+            this.rtConsola.TabIndex = 9;
+            this.rtConsola.Text = ">> Sin Depurar";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.Location = new System.Drawing.Point(606, 432);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Consola";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(573, 424);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 6;
+            this.pictureBox8.TabStop = false;
+            // 
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(12, 99);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 94);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -458,7 +460,7 @@
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(15, 474);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(12, 588);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(1039, 16);
             this.bunifuSeparator2.TabIndex = 12;
@@ -471,26 +473,55 @@
             this.dataGridErroresLexico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridErroresLexico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridErroresLexico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridErroresLexico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
             this.Mensaje,
+            this.Codigo,
             this.Tipo,
             this.dataGridViewTextBoxColumn1});
-            this.dataGridErroresLexico.Location = new System.Drawing.Point(12, 535);
+            this.dataGridErroresLexico.Location = new System.Drawing.Point(12, 626);
             this.dataGridErroresLexico.MultiSelect = false;
             this.dataGridErroresLexico.Name = "dataGridErroresLexico";
             this.dataGridErroresLexico.ReadOnly = true;
-            this.dataGridErroresLexico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridErroresLexico.Size = new System.Drawing.Size(1040, 145);
+            this.dataGridErroresLexico.Size = new System.Drawing.Size(1040, 135);
             this.dataGridErroresLexico.TabIndex = 14;
             // 
-            // Codigo
+            // label1
             // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 607);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Errores Léxicos";
+            // 
+            // Lexema
+            // 
+            this.Lexema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Lexema.HeaderText = "Lexema";
+            this.Lexema.Name = "Lexema";
+            this.Lexema.ReadOnly = true;
+            // 
+            // Token
+            // 
+            this.Token.HeaderText = "Token";
+            this.Token.Name = "Token";
+            this.Token.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Linea
+            // 
+            this.Linea.HeaderText = "Linea";
+            this.Linea.Name = "Linea";
+            this.Linea.ReadOnly = true;
             // 
             // Mensaje
             // 
@@ -498,6 +529,12 @@
             this.Mensaje.HeaderText = "Mensaje";
             this.Mensaje.Name = "Mensaje";
             this.Mensaje.ReadOnly = true;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
             // Tipo
             // 
@@ -511,90 +548,28 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 502);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Errores";
-            // 
-            // rt_Path
-            // 
-            this.rt_Path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rt_Path.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rt_Path.ForeColor = System.Drawing.Color.White;
-            this.rt_Path.Location = new System.Drawing.Point(12, 135);
-            this.rt_Path.Name = "rt_Path";
-            this.rt_Path.Size = new System.Drawing.Size(534, 333);
-            this.rt_Path.TabIndex = 16;
-            this.rt_Path.Text = "";
-            // 
-            // rt_Path_Colored
-            // 
-            this.rt_Path_Colored.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.rt_Path_Colored.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n";
-            this.rt_Path_Colored.AutoScrollMinSize = new System.Drawing.Size(31, 18);
-            this.rt_Path_Colored.BackBrush = null;
-            this.rt_Path_Colored.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rt_Path_Colored.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.rt_Path_Colored.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.rt_Path_Colored.CharHeight = 18;
-            this.rt_Path_Colored.CharWidth = 10;
-            this.rt_Path_Colored.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.rt_Path_Colored.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.rt_Path_Colored.Font = new System.Drawing.Font("Courier New", 12F);
-            this.rt_Path_Colored.ForeColor = System.Drawing.Color.White;
-            this.rt_Path_Colored.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rt_Path_Colored.IsReplaceMode = false;
-            this.rt_Path_Colored.Language = FastColoredTextBoxNS.Language.JS;
-            this.rt_Path_Colored.LeftBracket = '(';
-            this.rt_Path_Colored.LeftBracket2 = '{';
-            this.rt_Path_Colored.LineNumberColor = System.Drawing.Color.Cyan;
-            this.rt_Path_Colored.Location = new System.Drawing.Point(12, 135);
-            this.rt_Path_Colored.Name = "rt_Path_Colored";
-            this.rt_Path_Colored.Paddings = new System.Windows.Forms.Padding(0);
-            this.rt_Path_Colored.RightBracket = ')';
-            this.rt_Path_Colored.RightBracket2 = '}';
-            this.rt_Path_Colored.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.rt_Path_Colored.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("rt_Path_Colored.ServiceColors")));
-            this.rt_Path_Colored.Size = new System.Drawing.Size(534, 333);
-            this.rt_Path_Colored.TabIndex = 17;
-            this.rt_Path_Colored.Zoom = 100;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1064, 723);
-            this.Controls.Add(this.rt_Path_Colored);
-            this.Controls.Add(this.rt_Path);
+            this.ClientSize = new System.Drawing.Size(1064, 804);
             this.Controls.Add(this.dataGridErroresLexico);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.rtConsola);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panelFoot);
+            this.Controls.Add(this.rt_Path);
             this.Controls.Add(this.dataGridTokens);
             this.Controls.Add(this.panel_Top);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "rt_Path";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).EndInit();
             this.panelFoot.ResumeLayout(false);
             this.panelFoot.PerformLayout();
@@ -611,9 +586,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,6 +596,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridTokens;
+        private System.Windows.Forms.RichTextBox rt_Path;
         private System.Windows.Forms.Panel panelFoot;
         private System.Windows.Forms.Label lbDirectorio;
         private System.Windows.Forms.Label label3;
@@ -645,6 +621,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.RichTextBox rtConsola;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -656,11 +635,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Token;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Linea;
-        private System.Windows.Forms.RichTextBox rt_Path;
-        private FastColoredTextBoxNS.FastColoredTextBox rt_Path_Colored;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
