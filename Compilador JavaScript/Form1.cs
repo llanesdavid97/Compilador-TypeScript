@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Forms;
 
@@ -115,11 +116,14 @@ namespace Compilador_JavaScript
         #region BTN_Compilar
         private void btn_Run_Click(object sender, EventArgs e)
         {
+            #region EJECUTAR LEXICO
+
             rt_Path.Text = rt_Path_Colored.Text;
 
             Lexico tokenLista = new Lexico(rt_Path.Text);
             dataGridTokens.Rows.Clear();
             dataGridErroresLexico.Rows.Clear();
+            dataGridSintactico.Rows.Clear();
 
             if (rt_Path_Colored.Text.Length == 0)
             {
@@ -130,7 +134,7 @@ namespace Compilador_JavaScript
                 abrirArchivo();
                 foreach (Token lista in tokenLista.listaTokens)
                 {
-                    dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._linea);
+                    dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._Linea);
                 }
 
                 dataGridErroresLexico.AutoGenerateColumns = true;
@@ -146,7 +150,7 @@ namespace Compilador_JavaScript
 
                 foreach (Token lista in tokenLista.listaTokens)
                 {
-                    dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._linea);
+                    dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._Linea);
                 }
 
                 dataGridErroresLexico.AutoGenerateColumns = true;
@@ -156,6 +160,24 @@ namespace Compilador_JavaScript
 
                 }
             }
+            #endregion
+
+            #region EJECUTAR SINTACTICO
+            var objSintactico = new Sintactico(tokenLista.listaTokens);
+
+            //List<Error> listaErroresLexico = tokenLista.listaError;
+            List<Error> listaErroresSintactico = objSintactico.listaError;
+
+            //List<Error> listaError = listaErroresLexico.Union(listaErroresSintactico).ToList();
+
+            //dataGridErroresLexico.DataSource = null;
+            //dataGridErroresLexico.DataSource = listaError;
+            
+            foreach (Error errorSintactico in objSintactico.listaError)
+            {
+                dataGridSintactico.Rows.Add(errorSintactico.codigo, errorSintactico.mensajeError, errorSintactico.tipo, errorSintactico.Linea);
+            }
+            #endregion
         }
         #endregion
 

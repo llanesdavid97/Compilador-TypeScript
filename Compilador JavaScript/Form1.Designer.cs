@@ -63,7 +63,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.dataGridErroresLexico = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +72,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rt_Path = new System.Windows.Forms.RichTextBox();
             this.rt_Path_Colored = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.dataGridSintactico = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).BeginInit();
             this.panelFoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -86,9 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSintactico)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridTokens
@@ -104,12 +109,12 @@
             this.Token,
             this.Descripcion,
             this.Linea});
-            this.dataGridTokens.Location = new System.Drawing.Point(573, 135);
+            this.dataGridTokens.Location = new System.Drawing.Point(573, 98);
             this.dataGridTokens.MultiSelect = false;
             this.dataGridTokens.Name = "dataGridTokens";
             this.dataGridTokens.ReadOnly = true;
             this.dataGridTokens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTokens.Size = new System.Drawing.Size(479, 333);
+            this.dataGridTokens.Size = new System.Drawing.Size(479, 310);
             this.dataGridTokens.TabIndex = 1;
             // 
             // Lexema
@@ -143,9 +148,9 @@
             this.panelFoot.Controls.Add(this.pictureBox7);
             this.panelFoot.Controls.Add(this.lbDirectorio);
             this.panelFoot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFoot.Location = new System.Drawing.Point(0, 686);
+            this.panelFoot.Location = new System.Drawing.Point(0, 711);
             this.panelFoot.Name = "panelFoot";
-            this.panelFoot.Size = new System.Drawing.Size(1064, 37);
+            this.panelFoot.Size = new System.Drawing.Size(1064, 29);
             this.panelFoot.TabIndex = 7;
             // 
             // pictureBox7
@@ -161,11 +166,11 @@
             // lbDirectorio
             // 
             this.lbDirectorio.AutoSize = true;
-            this.lbDirectorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDirectorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDirectorio.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lbDirectorio.Location = new System.Drawing.Point(54, 11);
             this.lbDirectorio.Name = "lbDirectorio";
-            this.lbDirectorio.Size = new System.Drawing.Size(159, 16);
+            this.lbDirectorio.Size = new System.Drawing.Size(128, 13);
             this.lbDirectorio.TabIndex = 0;
             this.lbDirectorio.Text = ">> Direcctorio del archivo";
             // 
@@ -174,7 +179,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(570, 108);
+            this.label3.Location = new System.Drawing.Point(570, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 8;
@@ -304,6 +309,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
             this.textBox1.Location = new System.Drawing.Point(760, 50);
             this.textBox1.Name = "textBox1";
@@ -443,22 +449,12 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(12, 99);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 11;
-            this.pictureBox9.TabStop = false;
-            // 
             // bunifuSeparator2
             // 
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(15, 474);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(13, 414);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(1039, 16);
             this.bunifuSeparator2.TabIndex = 12;
@@ -478,12 +474,12 @@
             this.Mensaje,
             this.Tipo,
             this.dataGridViewTextBoxColumn1});
-            this.dataGridErroresLexico.Location = new System.Drawing.Point(12, 535);
+            this.dataGridErroresLexico.Location = new System.Drawing.Point(12, 457);
             this.dataGridErroresLexico.MultiSelect = false;
             this.dataGridErroresLexico.Name = "dataGridErroresLexico";
             this.dataGridErroresLexico.ReadOnly = true;
             this.dataGridErroresLexico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridErroresLexico.Size = new System.Drawing.Size(1040, 145);
+            this.dataGridErroresLexico.Size = new System.Drawing.Size(1040, 109);
             this.dataGridErroresLexico.TabIndex = 14;
             // 
             // Codigo
@@ -516,20 +512,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 502);
+            this.label1.Location = new System.Drawing.Point(11, 429);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Errores";
+            this.label1.Text = "Errores Lexicos";
             // 
             // rt_Path
             // 
             this.rt_Path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.rt_Path.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rt_Path.ForeColor = System.Drawing.Color.White;
-            this.rt_Path.Location = new System.Drawing.Point(12, 135);
+            this.rt_Path.Location = new System.Drawing.Point(15, 98);
             this.rt_Path.Name = "rt_Path";
-            this.rt_Path.Size = new System.Drawing.Size(534, 333);
+            this.rt_Path.Size = new System.Drawing.Size(534, 310);
             this.rt_Path.TabIndex = 16;
             this.rt_Path.Text = "";
             // 
@@ -549,7 +545,6 @@
             this.rt_Path_Colored.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n";
             this.rt_Path_Colored.AutoScrollMinSize = new System.Drawing.Size(31, 18);
             this.rt_Path_Colored.BackBrush = null;
-            this.rt_Path_Colored.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.rt_Path_Colored.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.rt_Path_Colored.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.rt_Path_Colored.CharHeight = 18;
@@ -557,36 +552,94 @@
             this.rt_Path_Colored.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.rt_Path_Colored.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.rt_Path_Colored.Font = new System.Drawing.Font("Courier New", 12F);
-            this.rt_Path_Colored.ForeColor = System.Drawing.Color.White;
+            this.rt_Path_Colored.ForeColor = System.Drawing.Color.Black;
             this.rt_Path_Colored.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.rt_Path_Colored.IsReplaceMode = false;
             this.rt_Path_Colored.Language = FastColoredTextBoxNS.Language.JS;
             this.rt_Path_Colored.LeftBracket = '(';
             this.rt_Path_Colored.LeftBracket2 = '{';
             this.rt_Path_Colored.LineNumberColor = System.Drawing.Color.Cyan;
-            this.rt_Path_Colored.Location = new System.Drawing.Point(12, 135);
+            this.rt_Path_Colored.Location = new System.Drawing.Point(15, 98);
             this.rt_Path_Colored.Name = "rt_Path_Colored";
             this.rt_Path_Colored.Paddings = new System.Windows.Forms.Padding(0);
             this.rt_Path_Colored.RightBracket = ')';
             this.rt_Path_Colored.RightBracket2 = '}';
             this.rt_Path_Colored.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.rt_Path_Colored.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("rt_Path_Colored.ServiceColors")));
-            this.rt_Path_Colored.Size = new System.Drawing.Size(534, 333);
+            this.rt_Path_Colored.Size = new System.Drawing.Size(534, 310);
             this.rt_Path_Colored.TabIndex = 17;
             this.rt_Path_Colored.Zoom = 100;
+            // 
+            // dataGridSintactico
+            // 
+            this.dataGridSintactico.AllowUserToAddRows = false;
+            this.dataGridSintactico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridSintactico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridSintactico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSintactico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridSintactico.Location = new System.Drawing.Point(10, 588);
+            this.dataGridSintactico.MultiSelect = false;
+            this.dataGridSintactico.Name = "dataGridSintactico";
+            this.dataGridSintactico.ReadOnly = true;
+            this.dataGridSintactico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridSintactico.Size = new System.Drawing.Size(1040, 105);
+            this.dataGridSintactico.TabIndex = 18;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Mensaje";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tipo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Linea";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 569);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Errores Sintacticos";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1064, 723);
+            this.ClientSize = new System.Drawing.Size(1064, 740);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridSintactico);
             this.Controls.Add(this.rt_Path_Colored);
             this.Controls.Add(this.rt_Path);
             this.Controls.Add(this.dataGridErroresLexico);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bunifuSeparator2);
-            this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panelFoot);
             this.Controls.Add(this.dataGridTokens);
@@ -611,9 +664,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSintactico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,7 +698,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox9;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.TextBox textBox1;
@@ -663,6 +715,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dataGridSintactico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Label label2;
     }
 }
 

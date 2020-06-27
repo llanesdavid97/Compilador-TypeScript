@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,15 @@ namespace Compilador_JavaScript
     #region class Token
     public class Token
     {
-        public int _Token;
-        public string _Lexema;
-        public int _linea;
-        public TipoToken _TipoToken;
+        private int token;
+        private string Lexema;
+        private int linea;
+        private TipoToken TipoToken;
+
+        public int _Token { get => token; set => token = value; }
+        public string _Lexema { get => Lexema; set => Lexema = value; }
+        public int _Linea { get => linea; set => linea = value; }
+        public TipoToken _TipoToken { get => TipoToken; set => TipoToken = value; }
     }
     #endregion
 
@@ -60,6 +66,7 @@ namespace Compilador_JavaScript
         POO,
         OpTipos,
         Sentencia,
+        TipoDato,
         OC
     }
     #endregion
@@ -78,10 +85,10 @@ namespace Compilador_JavaScript
                       //   0    1    2    3    4    5    6    7    8    9    10   11  12   13   14   15   16    17  18    19   20   21  22   23   24   25    26   27  28   29   30   31               
                      // || L || D || . || " || ' || / || * || + || - || % || = || & ||'|'|| ! || > || < || ? || ( || ) || {	|| } || [ || ] || ; || : || , || _ ||" "||\n ||EOF||\t ||OC ||
          /* 0  */      {   1,   2,   7,   8,   9,  10,  14,  15,  16,  17,  18,  20,  21,  22,  24,  25, -50, -62, -63, -64, -65, -66, -67, -68, -69, -70,   1,   0,   0,   0,   0, -500 },    //  0
-         /* 1  */      {   1,   1,  -1,-503,-503,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,-504,  -1,  -1,  -1,   1,   1,  -1,  -1,  -1,  -1 ,-500 },
+         /* 1  */      {   1,   1,  -1,-503,-503,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,-504,  -1,  -1,  -1,  -1,   1,  -1,  -1,  -1,  -1 ,-500 },
          /* 2  */      {   3,   2,   4,-503,-503,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,  -2,-504,  -2,  -2,  -2,  -2,   2,  -2,  -2,  -2,  -2, -501 },    //  1
          /* 3  */      {   3,   3,   3,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501 },    //  2
-         /* 4  */      {   6,   5,   6,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501 },    //  3
+         /* 4  */      {   6,   5,   6,-503,-503,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,   6,-501,-501,-501,-501, -501 },    //  3
          /* 5  */      {   6,   5,   6,-503,-503,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3,  -3, -501,},    //  4
          /* 6  */      {   6,   6,   6,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501,-501, -501,},    //  5
          /* 7  */      { -71,   5,   6, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -71, -501 },    //  5
@@ -91,18 +98,18 @@ namespace Compilador_JavaScript
          /* 11  */     {  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,   0,  11,  11,  11, },    //  9
          /* 12 */      {  12,  12,  12,  12,  12,  12,  13,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12,  12  },    // 10
          /* 13 */      {  13,  13,  13,  13,  13,   0,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13  },    // 11
-         /* 14 */      {  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -17,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -501 },    // 12
-         /* 15 */      {  -6,  -6,  -6,  -6,  -6,  -6,  -6, -12,-508,  -6, -15,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6, -501 },    // 13
-         /* 16 */      {  -7,  -7,  -7,  -7,  -7,  -7,  -7,-509, -13,  -7, -16,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7, -501 },    // 14 
-         /* 17 */      { -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -47, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -501 },    // 15
+         /* 14 */      {  -8,  -8,  -8,  -8,  -8,  -8,-501,-501,-501,  -8, -17,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8,  -8, -501 },    // 12
+         /* 15 */      {  -6,  -6,  -6,  -6,  -6,  -6,-501, -12,-508,  -6, -15,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6,  -6, -501 },    // 13
+         /* 16 */      {  -7,  -7,  -7,  -7,  -7,  -7,-501,-509, -13,  -7, -16,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7,  -7, -501 },    // 14 
+         /* 17 */      { -10, -10, -10, -10, -10, -10, -10, -10, -10,-501, -47, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -501 },    // 15
          /* 18 */      { -14, -14, -14, -14, -14, -14, -14, -14, -14, -14,  19, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -14, -501 },    // 16
          /* 19 */      { -45, -45, -45, -45, -45, -45, -45, -45, -45, -45,-501, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -45, -501 },    // 17
          /* 20 */      { -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -30, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -35, -501 },    // 18
          /* 21 */      { -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -31, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -36, -501 },    // 19
          /* 22 */      { -32, -32, -32, -32, -32, -32, -32, -32, -32, -32,  23, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -32, -501 },    // 20
          /* 23 */      { -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -46, -501 },    // 21 
-         /* 24 */      { -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -49, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -501 },    // 22
-         /* 25 */      { -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -50, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -501 }     // 23
+         /* 24 */      { -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -49, -47, -47, -47,-501,-501, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -47, -501 },    // 22
+         /* 25 */      { -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -50, -48, -48, -48,-501,-501, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -48, -501 }     // 23
         };
         #endregion
 
@@ -244,6 +251,13 @@ namespace Compilador_JavaScript
                 case "null":
                     return -117;
                 case "undefined":
+                    return -118;
+                case "import":
+                    return -119;
+                case "console":
+                    return -120;
+                case "log":
+                    return -121;
                 default: 
                     return -1;
             }
@@ -509,6 +523,12 @@ namespace Compilador_JavaScript
                     return TipoToken.SimSimples;
                 case -71:
                     return TipoToken.SimSimples;
+                case -72:
+                    return TipoToken.TipoDato;
+                case -73:
+                    return TipoToken.TipoDato;
+                case -74:
+                    return TipoToken.TipoDato;
                 case -76:
                     return TipoToken.Alcance;
                 case -77:
@@ -588,6 +608,10 @@ namespace Compilador_JavaScript
                 case -118:
                     return TipoToken.Sentencia;
                 case -119:
+                    return TipoToken.Sentencia;
+                case -120:
+                    return TipoToken.POO;
+                case -121:
                     return TipoToken.POO;
                 default:
                     return TipoToken.OC;
@@ -684,44 +708,238 @@ namespace Compilador_JavaScript
                  
                 if (estado < 0 && estado > -500)
                 {
+                    #region VALIDACION LETRAS
 
+                    if (lexema.Equals(".a") || lexema.Equals(".A"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".b") || lexema.Equals(".B"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".c") || lexema.Equals(".C"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".d") || lexema.Equals(".D"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".e") || lexema.Equals(".E"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".f") || lexema.Equals(".F"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".g") || lexema.Equals(".G"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".h") || lexema.Equals(".H"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".i") || lexema.Equals(".I"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".j") || lexema.Equals(".J"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".k") || lexema.Equals(".K"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".l") || lexema.Equals(".L"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".m") || lexema.Equals(".M"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".n") || lexema.Equals(".N"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".o") || lexema.Equals(".O"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".p") || lexema.Equals(".P"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".q") || lexema.Equals(".Q"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".r") || lexema.Equals(".R"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".s") || lexema.Equals(".S"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".t") || lexema.Equals(".T"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".u") || lexema.Equals(".U"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".v") || lexema.Equals(".V"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".w") || lexema.Equals(".W"))
+                    { 
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".x") || lexema.Equals(".X"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".y") || lexema.Equals(".Y"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals(".z") || lexema.Equals(".Z"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    #endregion
+
+                    #region VALIDACION NUMEROS
+                   
+                    if (lexema.Equals("0;") || lexema.Equals("0)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("1;") || lexema.Equals("1)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("2;") || lexema.Equals("2)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("3;") || lexema.Equals("3)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("4;") || lexema.Equals("4)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("5;") || lexema.Equals("5)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("6;") || lexema.Equals("5)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("7;") || lexema.Equals("7)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("8;") || lexema.Equals("8)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    if (lexema.Equals("9;") || lexema.Equals("9)"))
+                    {
+                        lexema = lexema.Remove(lexema.Length - 1);
+                        puntero--;
+                    }
+                    #endregion
+
+                    #region VALIDADCION DE esTIPO
                     if (estado == -1)
                     {
+                        
                         if (lexema.Length > 1)
                         {
                             lexema = lexema.Remove(lexema.Length - 1);
                             puntero--;
                         }
                     }
+                    #endregion
 
-
+                    #region AGREGAR TOKEN
                     Token nuevoToken = new Token()
-                    { _Token = estado, _Lexema = lexema, _linea = linea };
+                    { _Token = estado, _Lexema = lexema, _Linea = linea };
+                    #endregion
 
+                    #region VALIDADR IDENTIFICADOR
                     if (estado == -1)
-                        // Valida si es identificador
                         
                         nuevoToken._Token = esPalabraReservada(nuevoToken._Lexema);
                         nuevoToken._TipoToken = esTipo(nuevoToken._Token);
 
                         listaTokens.Add(nuevoToken);
+                    #endregion
 
-                        // Reseteo
-                        estado = 0;
+                    #region RESETEO
+                    estado = 0;
                         columna = 0;
                         lexema = string.Empty;
+                        #endregion
 
 
                 }
                 else if (estado <= -500)
                  {
-                    //Manejo de errores
+                    #region MANEJO DE ERRORES
                     lineaPublica = linea;
                     listaError.Add(ManejoErrores(estado));
                     estado = 0;
                     columna = 0;
                     lexema = string.Empty; // Lambda
-                 }
+                    #endregion
+                }
                 else if(estado == 0)
                 {
                     columna = 0;
@@ -729,10 +947,11 @@ namespace Compilador_JavaScript
                 }
    
             }
-            return listaTokens; // El resultado final del lexico
+            return listaTokens;
         }
 
         #endregion
+
 
 
     }
