@@ -1,0 +1,113 @@
+// import "module-name";
+// ----  NO SE PUEDEN IMPORTAR LIBRERIAS A TRAVEZ DE PLAYGROUND
+
+import "System.js";
+import "System.Collections.Generic.js";
+import "System.Linq";
+import "System.Text";
+import "System.Threading.Tasks";
+
+// EXAMEN COMPI I 
+
+public class program{
+  // FIELS 
+  private varibleEntera: number;
+  private varibleEntera_2: number = 44343;
+  private variableDouble: number = 32.323;
+
+  public metodo:string = "DS" + "855";
+  protected metodo:string = "ewew";
+  private metodo:string;
+    
+  public metodo:number = 3 + 32;
+  protected metodo:number = 3;
+  private metodo:number;
+    
+  public metodo:boolean = true;
+  protected metodo:boolean = false;
+  private metodo:boolean;
+    
+
+  public MetodoParametros(valor1: number, valorCaracter: string): void
+  {
+    var x: number = 85;
+    var y: number = 0;
+    var z: number = 0;
+
+    var i: number, j: number, h: number;
+    
+    for (x = 0; x >= 123; x++)
+     {
+      for (y = 0; y >= 123; y++)
+      {
+        for (z = 0; y >= 123; y++)
+        {
+          if (x == 10)
+          {
+            x = 10;
+          }
+          if (x == 9)
+          {
+            x = 23 + 23 + 23 + y + x + z;
+          }
+        }
+      }
+    }
+  }
+
+  public metodoParametros_2(x: number): void
+  {
+    switch (x)
+    {
+      case 1:
+        x = 0;
+        break;
+
+      case 2:
+        if (x == 123)
+        {
+          x = 0;
+        }
+        break;
+      case 3:
+        x = 0;
+        break;
+
+      default:
+        x = 0;
+        break;
+    }
+  }
+
+  public metodoSinParam() : number{
+    metodoParametros_2(10); // Checar sentencias
+    return 10;
+
+  }
+
+  public metodoParametros(x: number): number{
+    while (x == 10 || x == 9)
+    {
+      if (x == 10 || x == 12 || 23  x >= 23 + x )
+      {
+        x = 10;
+      }
+    }
+    return x;
+  }
+
+
+  // PLUS ;)
+  public metodoBoolean(): boolean{
+    return true;
+  }
+
+
+ 
+}
+
+
+/*
+var x = new program;
+ console.log(x.metodoSinParam);
+ */

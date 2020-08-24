@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dataGridTokens = new System.Windows.Forms.DataGridView();
-            this.Lexema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFoot = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lbDirectorio = new System.Windows.Forms.Label();
@@ -64,21 +59,38 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.dataGridErroresLexico = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mensaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.rt_Path = new System.Windows.Forms.RichTextBox();
             this.rt_Path_Colored = new FastColoredTextBoxNS.FastColoredTextBox();
             this.dataGridSintactico = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridErroresLexico = new System.Windows.Forms.DataGridView();
+            this.Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lexema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridTokens = new System.Windows.Forms.DataGridView();
+            this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.toolStrip_Languages = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.luaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).BeginInit();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mensaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -91,72 +103,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSintactico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.toolStrip_Languages.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridTokens
-            // 
-            this.dataGridTokens.AllowUserToAddRows = false;
-            this.dataGridTokens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridTokens.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridTokens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTokens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Lexema,
-            this.Token,
-            this.Descripcion,
-            this.Linea});
-            this.dataGridTokens.Location = new System.Drawing.Point(573, 98);
-            this.dataGridTokens.MultiSelect = false;
-            this.dataGridTokens.Name = "dataGridTokens";
-            this.dataGridTokens.ReadOnly = true;
-            this.dataGridTokens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTokens.Size = new System.Drawing.Size(479, 310);
-            this.dataGridTokens.TabIndex = 1;
-            // 
-            // Lexema
-            // 
-            this.Lexema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Lexema.HeaderText = "Lexema";
-            this.Lexema.Name = "Lexema";
-            this.Lexema.ReadOnly = true;
-            // 
-            // Token
-            // 
-            this.Token.HeaderText = "Token";
-            this.Token.Name = "Token";
-            this.Token.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Linea
-            // 
-            this.Linea.HeaderText = "Linea";
-            this.Linea.Name = "Linea";
-            this.Linea.ReadOnly = true;
             // 
             // panelFoot
             // 
-            this.panelFoot.Controls.Add(this.pictureBox7);
             this.panelFoot.Controls.Add(this.lbDirectorio);
+            this.panelFoot.Controls.Add(this.pictureBox7);
             this.panelFoot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFoot.Location = new System.Drawing.Point(0, 711);
+            this.panelFoot.Location = new System.Drawing.Point(0, 662);
             this.panelFoot.Name = "panelFoot";
-            this.panelFoot.Size = new System.Drawing.Size(1064, 29);
+            this.panelFoot.Size = new System.Drawing.Size(1169, 35);
             this.panelFoot.TabIndex = 7;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(15, 4);
+            this.pictureBox7.Location = new System.Drawing.Point(15, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -168,7 +136,7 @@
             this.lbDirectorio.AutoSize = true;
             this.lbDirectorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDirectorio.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbDirectorio.Location = new System.Drawing.Point(54, 11);
+            this.lbDirectorio.Location = new System.Drawing.Point(45, 13);
             this.lbDirectorio.Name = "lbDirectorio";
             this.lbDirectorio.Size = new System.Drawing.Size(128, 13);
             this.lbDirectorio.TabIndex = 0;
@@ -179,7 +147,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(570, 79);
+            this.label3.Location = new System.Drawing.Point(627, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 8;
@@ -217,7 +185,7 @@
             this.abrirToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.abrirToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
@@ -226,14 +194,14 @@
             this.toolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.White;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.guardarToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
@@ -242,7 +210,7 @@
             this.guardarComoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.guardarComoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
-            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarComoToolStripMenuItem.Text = "Guardar como";
             // 
             // ayudaToolStripMenuItem
@@ -259,7 +227,7 @@
             this.acercaDeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
@@ -281,7 +249,7 @@
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Top.Location = new System.Drawing.Point(0, 0);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(1064, 76);
+            this.panel_Top.Size = new System.Drawing.Size(1169, 76);
             this.panel_Top.TabIndex = 0;
             // 
             // label4
@@ -289,7 +257,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(901, 13);
+            this.label4.Location = new System.Drawing.Point(996, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 16);
             this.label4.TabIndex = 18;
@@ -298,7 +266,7 @@
             // pictureBox11
             // 
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(729, 48);
+            this.pictureBox11.Location = new System.Drawing.Point(824, 49);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(25, 25);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -311,7 +279,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Enabled = false;
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(760, 50);
+            this.textBox1.Location = new System.Drawing.Point(855, 51);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(225, 20);
             this.textBox1.TabIndex = 13;
@@ -320,7 +288,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(1027, 48);
+            this.pictureBox10.Location = new System.Drawing.Point(1096, 48);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(25, 25);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -332,9 +300,9 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(14, 32);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(55, 35);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(971, 10);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1025, 10);
             this.bunifuSeparator1.TabIndex = 9;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -409,7 +377,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(15, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -419,7 +387,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(996, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(1091, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -430,7 +398,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1032, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(1127, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -454,65 +422,19 @@
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(13, 414);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(18, 643);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(1039, 16);
+            this.bunifuSeparator2.Size = new System.Drawing.Size(1142, 10);
             this.bunifuSeparator2.TabIndex = 12;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
-            // 
-            // dataGridErroresLexico
-            // 
-            this.dataGridErroresLexico.AllowUserToAddRows = false;
-            this.dataGridErroresLexico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridErroresLexico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridErroresLexico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridErroresLexico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Mensaje,
-            this.Tipo,
-            this.dataGridViewTextBoxColumn1});
-            this.dataGridErroresLexico.Location = new System.Drawing.Point(12, 457);
-            this.dataGridErroresLexico.MultiSelect = false;
-            this.dataGridErroresLexico.Name = "dataGridErroresLexico";
-            this.dataGridErroresLexico.ReadOnly = true;
-            this.dataGridErroresLexico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridErroresLexico.Size = new System.Drawing.Size(1040, 109);
-            this.dataGridErroresLexico.TabIndex = 14;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Mensaje
-            // 
-            this.Mensaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Mensaje.HeaderText = "Mensaje";
-            this.Mensaje.Name = "Mensaje";
-            this.Mensaje.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Linea";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 429);
+            this.label1.Location = new System.Drawing.Point(627, 353);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 13;
@@ -521,11 +443,11 @@
             // rt_Path
             // 
             this.rt_Path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rt_Path.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rt_Path.Font = new System.Drawing.Font("Consolas", 9.75F);
             this.rt_Path.ForeColor = System.Drawing.Color.White;
-            this.rt_Path.Location = new System.Drawing.Point(15, 98);
+            this.rt_Path.Location = new System.Drawing.Point(39, 89);
             this.rt_Path.Name = "rt_Path";
-            this.rt_Path.Size = new System.Drawing.Size(534, 310);
+            this.rt_Path.Size = new System.Drawing.Size(560, 515);
             this.rt_Path.TabIndex = 16;
             this.rt_Path.Text = "";
             // 
@@ -542,32 +464,36 @@
         '\"',
         '\'',
         '\''};
-            this.rt_Path_Colored.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n";
-            this.rt_Path_Colored.AutoScrollMinSize = new System.Drawing.Size(31, 18);
+            this.rt_Path_Colored.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
+    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
+            this.rt_Path_Colored.AutoScrollMinSize = new System.Drawing.Size(0, 15);
             this.rt_Path_Colored.BackBrush = null;
+            this.rt_Path_Colored.BackColor = System.Drawing.Color.Black;
             this.rt_Path_Colored.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.rt_Path_Colored.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.rt_Path_Colored.CharHeight = 18;
-            this.rt_Path_Colored.CharWidth = 10;
+            this.rt_Path_Colored.CharHeight = 15;
+            this.rt_Path_Colored.CharWidth = 7;
             this.rt_Path_Colored.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.rt_Path_Colored.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.rt_Path_Colored.Font = new System.Drawing.Font("Courier New", 12F);
-            this.rt_Path_Colored.ForeColor = System.Drawing.Color.Black;
+            this.rt_Path_Colored.Font = new System.Drawing.Font("Consolas", 9.75F);
+            this.rt_Path_Colored.ForeColor = System.Drawing.Color.White;
             this.rt_Path_Colored.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.rt_Path_Colored.IsReplaceMode = false;
-            this.rt_Path_Colored.Language = FastColoredTextBoxNS.Language.JS;
+            this.rt_Path_Colored.Language = FastColoredTextBoxNS.Language.CSharp;
             this.rt_Path_Colored.LeftBracket = '(';
             this.rt_Path_Colored.LeftBracket2 = '{';
             this.rt_Path_Colored.LineNumberColor = System.Drawing.Color.Cyan;
-            this.rt_Path_Colored.Location = new System.Drawing.Point(15, 98);
+            this.rt_Path_Colored.Location = new System.Drawing.Point(21, 89);
             this.rt_Path_Colored.Name = "rt_Path_Colored";
             this.rt_Path_Colored.Paddings = new System.Windows.Forms.Padding(0);
             this.rt_Path_Colored.RightBracket = ')';
             this.rt_Path_Colored.RightBracket2 = '}';
-            this.rt_Path_Colored.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.rt_Path_Colored.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rt_Path_Colored.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("rt_Path_Colored.ServiceColors")));
-            this.rt_Path_Colored.Size = new System.Drawing.Size(534, 310);
+            this.rt_Path_Colored.Size = new System.Drawing.Size(578, 515);
             this.rt_Path_Colored.TabIndex = 17;
+            this.rt_Path_Colored.WordWrap = true;
+            this.rt_Path_Colored.WordWrapMode = FastColoredTextBoxNS.WordWrapMode.CharWrapControlWidth;
             this.rt_Path_Colored.Zoom = 100;
             // 
             // dataGridSintactico
@@ -576,26 +502,236 @@
             this.dataGridSintactico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridSintactico.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridSintactico.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridSintactico.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridSintactico.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridSintactico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSintactico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dataGridSintactico.Location = new System.Drawing.Point(10, 588);
+            this.dataGridSintactico.Location = new System.Drawing.Point(630, 540);
             this.dataGridSintactico.MultiSelect = false;
             this.dataGridSintactico.Name = "dataGridSintactico";
             this.dataGridSintactico.ReadOnly = true;
             this.dataGridSintactico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSintactico.Size = new System.Drawing.Size(1040, 105);
+            this.dataGridSintactico.Size = new System.Drawing.Size(530, 81);
             this.dataGridSintactico.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(627, 510);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Errores Sintacticos";
+            // 
+            // dataGridErroresLexico
+            // 
+            this.dataGridErroresLexico.AllowUserToAddRows = false;
+            this.dataGridErroresLexico.AllowUserToDeleteRows = false;
+            this.dataGridErroresLexico.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridErroresLexico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridErroresLexico.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridErroresLexico.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridErroresLexico.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridErroresLexico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridErroresLexico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Mensaje,
+            this.Tipo,
+            this.dataGridViewTextBoxColumn1});
+            this.dataGridErroresLexico.Location = new System.Drawing.Point(630, 373);
+            this.dataGridErroresLexico.MultiSelect = false;
+            this.dataGridErroresLexico.Name = "dataGridErroresLexico";
+            this.dataGridErroresLexico.ReadOnly = true;
+            this.dataGridErroresLexico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridErroresLexico.Size = new System.Drawing.Size(530, 105);
+            this.dataGridErroresLexico.TabIndex = 14;
+            // 
+            // Linea
+            // 
+            this.Linea.HeaderText = "Linea";
+            this.Linea.Name = "Linea";
+            this.Linea.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Token
+            // 
+            this.Token.HeaderText = "Token";
+            this.Token.Name = "Token";
+            this.Token.ReadOnly = true;
+            // 
+            // Lexema
+            // 
+            this.Lexema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Lexema.HeaderText = "Lexema";
+            this.Lexema.Name = "Lexema";
+            this.Lexema.ReadOnly = true;
+            // 
+            // dataGridTokens
+            // 
+            this.dataGridTokens.AllowUserToAddRows = false;
+            this.dataGridTokens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridTokens.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridTokens.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridTokens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTokens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Lexema,
+            this.Token,
+            this.Descripcion,
+            this.Linea});
+            this.dataGridTokens.Location = new System.Drawing.Point(627, 108);
+            this.dataGridTokens.MultiSelect = false;
+            this.dataGridTokens.Name = "dataGridTokens";
+            this.dataGridTokens.ReadOnly = true;
+            this.dataGridTokens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridTokens.Size = new System.Drawing.Size(530, 198);
+            this.dataGridTokens.TabIndex = 1;
+            // 
+            // bunifuSeparator3
+            // 
+            this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator3.LineThickness = 1;
+            this.bunifuSeparator3.Location = new System.Drawing.Point(639, 334);
+            this.bunifuSeparator3.Name = "bunifuSeparator3";
+            this.bunifuSeparator3.Size = new System.Drawing.Size(505, 10);
+            this.bunifuSeparator3.TabIndex = 20;
+            this.bunifuSeparator3.Transparency = 255;
+            this.bunifuSeparator3.Vertical = false;
+            // 
+            // bunifuSeparator4
+            // 
+            this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator4.LineThickness = 1;
+            this.bunifuSeparator4.Location = new System.Drawing.Point(639, 495);
+            this.bunifuSeparator4.Name = "bunifuSeparator4";
+            this.bunifuSeparator4.Size = new System.Drawing.Size(505, 10);
+            this.bunifuSeparator4.TabIndex = 21;
+            this.bunifuSeparator4.Transparency = 255;
+            this.bunifuSeparator4.Vertical = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.toolStrip_Languages);
+            this.panel1.Location = new System.Drawing.Point(21, 610);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(578, 27);
+            this.panel1.TabIndex = 22;
+            // 
+            // bunifuSeparator5
+            // 
+            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator5.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator5.LineThickness = 1;
+            this.bunifuSeparator5.Location = new System.Drawing.Point(605, 89);
+            this.bunifuSeparator5.Name = "bunifuSeparator5";
+            this.bunifuSeparator5.Size = new System.Drawing.Size(10, 515);
+            this.bunifuSeparator5.TabIndex = 23;
+            this.bunifuSeparator5.Transparency = 255;
+            this.bunifuSeparator5.Vertical = true;
+            // 
+            // toolStrip_Languages
+            // 
+            this.toolStrip_Languages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.toolStrip_Languages.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip_Languages.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.toolStrip_Languages.Location = new System.Drawing.Point(0, 2);
+            this.toolStrip_Languages.Name = "toolStrip_Languages";
+            this.toolStrip_Languages.Size = new System.Drawing.Size(578, 25);
+            this.toolStrip_Languages.TabIndex = 0;
+            this.toolStrip_Languages.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLToolStripMenuItem,
+            this.sQLToolStripMenuItem,
+            this.cToolStripMenuItem,
+            this.pHPToolStripMenuItem,
+            this.luaToolStripMenuItem,
+            this.jSToolStripMenuItem,
+            this.hTMLToolStripMenuItem});
+            this.toolStripDropDownButton1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(77, 22);
+            this.toolStripDropDownButton1.Text = "Languages";
+            // 
+            // hTMLToolStripMenuItem
+            // 
+            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
+            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hTMLToolStripMenuItem.Text = "HTML";
+            this.hTMLToolStripMenuItem.Click += new System.EventHandler(this.hTMLToolStripMenuItem_Click);
+            // 
+            // jSToolStripMenuItem
+            // 
+            this.jSToolStripMenuItem.Name = "jSToolStripMenuItem";
+            this.jSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jSToolStripMenuItem.Text = "JS";
+            this.jSToolStripMenuItem.Click += new System.EventHandler(this.jSToolStripMenuItem_Click);
+            // 
+            // luaToolStripMenuItem
+            // 
+            this.luaToolStripMenuItem.Name = "luaToolStripMenuItem";
+            this.luaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.luaToolStripMenuItem.Text = "Lua";
+            this.luaToolStripMenuItem.Click += new System.EventHandler(this.luaToolStripMenuItem_Click);
+            // 
+            // pHPToolStripMenuItem
+            // 
+            this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
+            this.pHPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pHPToolStripMenuItem.Text = "PHP";
+            this.pHPToolStripMenuItem.Click += new System.EventHandler(this.pHPToolStripMenuItem_Click);
+            // 
+            // cToolStripMenuItem
+            // 
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cToolStripMenuItem.Text = "C#";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            // 
+            // sQLToolStripMenuItem
+            // 
+            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sQLToolStripMenuItem.Text = "SQL";
+            this.sQLToolStripMenuItem.Click += new System.EventHandler(this.sQLToolStripMenuItem_Click);
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            this.xMLToolStripMenuItem.Click += new System.EventHandler(this.xMLToolStripMenuItem_Click);
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn2.HeaderText = "Codigo";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 65;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -606,33 +742,60 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn4.HeaderText = "Tipo";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn5.HeaderText = "Linea";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 58;
             // 
-            // label2
+            // Codigo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 569);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Errores Sintacticos";
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 65;
+            // 
+            // Mensaje
+            // 
+            this.Mensaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Mensaje.HeaderText = "Mensaje";
+            this.Mensaje.Name = "Mensaje";
+            this.Mensaje.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 53;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Linea";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 58;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(1064, 740);
+            this.ClientSize = new System.Drawing.Size(1169, 697);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.bunifuSeparator5);
+            this.Controls.Add(this.bunifuSeparator4);
+            this.Controls.Add(this.bunifuSeparator3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridSintactico);
             this.Controls.Add(this.rt_Path_Colored);
@@ -647,8 +810,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "rt_Path";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).EndInit();
+            this.Text = "1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelFoot.ResumeLayout(false);
             this.panelFoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -664,16 +827,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rt_Path_Colored)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSintactico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridErroresLexico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTokens)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.toolStrip_Languages.ResumeLayout(false);
+            this.toolStrip_Languages.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridTokens;
         private System.Windows.Forms.Panel panelFoot;
         private System.Windows.Forms.Label lbDirectorio;
         private System.Windows.Forms.Label label3;
@@ -702,25 +869,39 @@
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.DataGridView dataGridErroresLexico;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lexema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Linea;
         private System.Windows.Forms.RichTextBox rt_Path;
         private FastColoredTextBoxNS.FastColoredTextBox rt_Path_Colored;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView dataGridSintactico;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridErroresLexico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Linea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lexema;
+        private System.Windows.Forms.DataGridView dataGridTokens;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator5;
+        private System.Windows.Forms.ToolStrip toolStrip_Languages;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem luaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }
 

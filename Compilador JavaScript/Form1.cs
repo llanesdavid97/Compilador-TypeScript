@@ -13,7 +13,10 @@ namespace Compilador_JavaScript
         public Form1()
         {
             InitializeComponent();
+
         }
+
+
 
         #region CERRAR
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -137,14 +140,15 @@ namespace Compilador_JavaScript
                     dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._Linea);
                 }
 
-                dataGridErroresLexico.AutoGenerateColumns = true;
+                //dataGridErroresLexico.AutoGenerateColumns = true;
                 foreach (Error error in tokenLista.listaError)
                 {
                     dataGridErroresLexico.Rows.Add(error.codigo, error.mensajeError, error.tipo, error.Linea);
 
                 }
             }
-            else if (rt_Path_Colored.Text.Length >= 1){
+            else if (rt_Path_Colored.Text.Length >= 1)
+            {
                 rt_Path.Text = rt_Path_Colored.Text;
                 tokenLista.EjecutarLexico();
 
@@ -153,7 +157,7 @@ namespace Compilador_JavaScript
                     dataGridTokens.Rows.Add(lista._Lexema, lista._Token, lista._TipoToken, lista._Linea);
                 }
 
-                dataGridErroresLexico.AutoGenerateColumns = true;
+                //dataGridErroresLexico.AutoGenerateColumns = true;
                 foreach (Error error in tokenLista.listaError)
                 {
                     dataGridErroresLexico.Rows.Add(error.codigo, error.mensajeError, error.tipo, error.Linea);
@@ -162,22 +166,26 @@ namespace Compilador_JavaScript
             }
             #endregion
 
+
             #region EJECUTAR SINTACTICO
             var objSintactico = new Sintactico(tokenLista.listaTokens);
 
             //List<Error> listaErroresLexico = tokenLista.listaError;
-            List<Error> listaErroresSintactico = objSintactico.listaError;
+
+            //List<Error> listaErroresSintactico = objSintactico.listaError;
 
             //List<Error> listaError = listaErroresLexico.Union(listaErroresSintactico).ToList();
 
             //dataGridErroresLexico.DataSource = null;
             //dataGridErroresLexico.DataSource = listaError;
-            
+
+
             foreach (Error errorSintactico in objSintactico.listaError)
             {
                 dataGridSintactico.Rows.Add(errorSintactico.codigo, errorSintactico.mensajeError, errorSintactico.tipo, errorSintactico.Linea);
             }
             #endregion
+
         }
         #endregion
 
@@ -197,5 +205,46 @@ namespace Compilador_JavaScript
 
         #endregion
 
+        #region LANGUAGES
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.CSharp;
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.PHP;
+        }
+
+        private void luaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.Lua;
+        }
+
+        private void jSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.JS;
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.HTML;
+        }
+
+        private void sQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.SQL;
+        }
+
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.XML;
+        }
+        #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            rt_Path_Colored.Language = FastColoredTextBoxNS.Language.CSharp;
+        }
     }
 }
