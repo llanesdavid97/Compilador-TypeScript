@@ -30,11 +30,11 @@ public class program{
 
   public MetodoParametros(valor1: number, valorCaracter: string): void
   {
-    var x: number = 85;
-    var y: number = 0;
-    var z: number = 0;
+    let x: number = 85;
+    let y: number = 0;
+    let z: number = 0;
 
-    var i: number, j: number, h: number;
+    let i: number, j: number, h: number;
     
     for (x = 0; x >= 123; x++)
      {
@@ -80,7 +80,8 @@ public class program{
   }
 
   public metodoSinParam() : number{
-    metodoParametros_2(10); // Checar sentencias
+    this.metodoParametros_2(10); // Checar sentencias
+    super.metodoParametros_2(10); // Checar sentencias
     return 10;
 
   }
@@ -109,5 +110,10 @@ public class program{
 
 /*
 var x = new program;
- console.log(x.metodoSinParam);
+ console.log(x.metodoSinParam());
+
+/--------------------------------/
+var x = new program();
+var f = x.metodoSinParam();
+console.log(f);
  */
